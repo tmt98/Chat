@@ -119,7 +119,7 @@ export default class Login extends Component{
             console.log(error.message);
             // do something here
         }
-        this.props.navigation.navigate('Chat')
+        this.props.navigation.navigate('Home')
 
     }   
 

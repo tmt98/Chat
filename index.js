@@ -12,7 +12,7 @@ import RootNavigation from'./src/navigations/RootNavigation'
 import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 // import Login from './src/screens/Login'
-
+import Home from './src/screens/Home'
 
 import { createStackNavigator, createAppContainer } from 'react-navigation'; // Version can be specified in package.json
 

@@ -1,4 +1,4 @@
-import {createStackNavigator,createAppContainer} from 'react-navigation'
+import {createStackNavigator,createAppContainer,createSwitchNavigator} from 'react-navigation'
 
 
 // import RootStack from './RootStack'
@@ -7,10 +7,11 @@ import Login from '../screens/Login'
 import Chat from '../screens/Chat'
 import HomeScreen from './HomeScreen'
 import DetailsScreen from './DetailsScreen'
-const RootStack = createStackNavigator(
+import Home from '../screens/Home'
+const RootStack = createSwitchNavigator(
   {
     Login: Login,
-    Chat : Chat,
+    Home : Home,
   },
   {
     initialRouteName: 'Login',
