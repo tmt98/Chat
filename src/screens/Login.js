@@ -21,7 +21,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import firebase from 'firebase';
 import {COLOR_PINK_LIGHT,COLOR_FACEBOOK} from './color.js'
-import {connect} from 'react-redux'
+
 // const config = {
 //     apiKey: "AIzaSyAIP8Ug0OqI5Rxv29HK8hMYTWNrgG8Yvoc",
 //     authDomain: "chat-app-87fd5.firebaseapp.com",
@@ -32,10 +32,9 @@ import {connect} from 'react-redux'
 //   };
 // firebase.initializeApp(config);
 
-import {InteractionManager} from 'react-native';
 
 
-import RootNavigation from '../navigations/RootNavigation'
+
 import firebaseApp from  '../FirebaseConfig'
 
 
@@ -164,21 +163,11 @@ export default class Login extends Component{
       )
 
 }
-    // componentDidMount(){
-    // console.log('componentDidMount',this.props);
-    // }
+
 
 }
 
-// const mapStateToProps= (state)=>{
-//   console.log('mapStateToProps',state)
-//   return{
-//     logged:state.authentication.loggedIn,
-//     user : state.authentication.user
-//   };
-// };
 
-// export default connect(mapStateToProps)(Login);
 
 const styles = StyleSheet.create({
     container: {
