@@ -16,7 +16,8 @@ import {Platform,
         TouchableWithoutFeedback,
         Keyboard,
         ActivityIndicator,
-        Alert} from 'react-native';
+        Alert,
+        ImageBackground,} from 'react-native';
 import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -25,6 +26,8 @@ import firebase from 'firebase';
 import {COLOR_PINK_LIGHT,COLOR_FACEBOOK, COLOR_GOOGLE} from './color.js'
 import {connect} from 'react-redux';
 import {InteractionManager} from 'react-native';
+import background from './../image/background-image.jpg';
+import { Actions } from 'react-native-router-flux';
 const config = {
     apiKey: "AIzaSyAIP8Ug0OqI5Rxv29HK8hMYTWNrgG8Yvoc",
     authDomain: "chat-app-87fd5.firebaseapp.com",
@@ -109,7 +112,8 @@ class Login extends Component{
         });
         this.setState({
             animating: false
-        });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        });        
+        Actions.chat()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
       } catch (error) {
         this.setState({
             animating: false
@@ -200,57 +204,62 @@ class Login extends Component{
         </View>
       )
     }
+    
     return (
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <View style={styles.up}>
-            <Ionicons 
-                name="ios-chatbubbles"
-                size={150}
-                color={'white'}>
-            </Ionicons>
-            <Text style={styles.title}>
-              ChatApp for everyone
-            </Text>
-          </View>
-          <View style ={styles.down}>
-            <View style={{ flex:1, margin: 10}}>
-              <FontAwesome.Button
-                style={styles.googleButton}
-                name='google'
-                onPress={this.logInSocial}
-                backgroundColor={COLOR_GOOGLE}>
-                  <Text style={styles.loginButtonTittle}>
-                    Google
-                  </Text>
-              </FontAwesome.Button>
-              <ActivityIndicator
-//                  {console.log(this.state.logged)}
-                  animating={this.state.animating}
-                  color="#ddd"
-                  size="large"
-              />
+      <ImageBackground source={ background } style={{width: '100%', height: '100%'}}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <View style={styles.up}>
+              <Ionicons 
+                  name="ios-contacts"
+                  size={120}
+                  color={'#C26E1F'}>
+              </Ionicons>
+              <Text style={styles.title}>
+                ChatApp for everyone
+              </Text>
             </View>
-            <View style={{ flex:1, margin:10}}>
-              <FontAwesome.Button
-                style={styles.facebookButton}
-                name='facebook'
-                onPress={this.onLoginFacebook}
-                backgroundColor={COLOR_FACEBOOK}>
-                  <Text style={styles.loginButtonTittle}>
-                    Facebook
-                  </Text>
-              </FontAwesome.Button>
-              <ActivityIndicator
-                  //{console.log(this.state.logged)}
-                  animating={this.state.animating}
-                  color="#ddd"
-                  size="large"
-              />
+            <View style ={styles.down}>
+              <View style={{ flex:1}}>
+                <FontAwesome.Button
+                  style={styles.facebookButton}
+                  name='facebook'
+                  onPress={this.onLoginFacebook}
+                  backgroundColor={COLOR_FACEBOOK}>
+                    <Text style={styles.loginButtonTittle}>
+                      Facebook
+                    </Text>
+                </FontAwesome.Button>
+                <ActivityIndicator
+                    //{console.log(this.state.logged)}
+                    animating={this.state.animating}
+                    color="#ddd"
+                    size="large"
+                />
+              
+                {/* <Divider style={styles.divider}></Divider> */}
+              {/* </View> */}
+              {/* <View style={{ flex:1}}> */}
+                <FontAwesome.Button
+                  style={styles.googleButton}
+                  name='google'
+                  onPress={this.logInSocial}
+                  backgroundColor={COLOR_GOOGLE}>
+                    <Text style={styles.loginButtonTittle}>
+                      Google
+                    </Text>
+                </FontAwesome.Button>
+                <ActivityIndicator
+  //                  {console.log(this.state.logged)}
+                    animating={this.state.animating}
+                    color="#ddd"
+                    size="large"
+                />
+              </View>
             </View>
           </View>
-        </View>
-      </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </ImageBackground> 
     )
   }
 }
@@ -271,12 +280,12 @@ const styles = StyleSheet.create({
     flexDirection : 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: '#1ab2ff',
+    // backgroundColor: '#1ab2ff',
 
   },
   up:{
-//    marginTop: '30%',
-    flex:3,
+  //  marginTop: 30,
+    flex:1,
     flexDirection : 'column',
     justifyContent:'center',
     alignItems:'center',
@@ -284,12 +293,12 @@ const styles = StyleSheet.create({
   },
   down:{
     flex:1,
-    flexDirection : 'row',
+    flexDirection : 'column',
     justifyContent:'flex-start',
     alignItems:'center'
   },
   title:{
-    color: 'white',
+    color: '#C26E1F',
     textAlign : 'center',
     width: 400,
     fontSize:25,
@@ -315,8 +324,14 @@ const styles = StyleSheet.create({
   },
   googleButton:{
 //    width: 100
+    width:280,
+    // height:45,
     justifyContent:'center',
     alignItems:'center',
+    borderRadius:6,
+    // &:hover{
+    //   letter-spacing: 5px,
+    // }
   },
   loginButtonTittle:{
     fontSize :18, 
@@ -325,8 +340,10 @@ const styles = StyleSheet.create({
   facebookButton:{
     justifyContent:'center',
     alignItems:'center',
-//    width:300,
-//    borderRadius:6,
+    width:280,
+    // height:45,
+    borderRadius:6,
+    // marginBottom:0
 //    justifyContent:'center',
   },
   line: {
@@ -340,8 +357,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     flexDirection: 'row',
-    height: 40,
-    width: 298,
+    width: 280,
     justifyContent: 'center',
     alignItems: 'center'
   }

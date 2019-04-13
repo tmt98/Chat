@@ -14,8 +14,8 @@ export default class Splash extends Component{
 		return(
 			<View style={styles.container}>
 				<Ionicons 
-					name="ios-chatbubbles"
-					size={200}
+					name="ios-contacts"
+					size={180}
 					color={'white'}> 
 				</Ionicons>
 				<Text style={styles.title}>
