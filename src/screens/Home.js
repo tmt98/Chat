@@ -1,32 +1,53 @@
 import React from 'react';
 import { Text, View,Button} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 6.2.2
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator,createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Chat from './Chat'
 
+
 class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Home!</Text>
         <Button
-          title="Go to Settings"
-          onPress={() => this.props.navigation.navigate('Settings')}
+          title="Go to Chat"
+          onPress={() => this.props.navigation.navigate('Chat')}
         />
-        <Button
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
-        />
+        
       </View>
     );
   }
 }
+const HomeScreenStack= createStackNavigator(
+  {
+    Home: HomeScreen,
+    Chat: Chat
+  },
+  {
+    initialRouteName:'Home'
+  }
+)
 
 class SettingsScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+class LocatesScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Locate!</Text>
       </View>
     );
   }
@@ -87,8 +108,9 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
  const Home = createAppContainer(
   createBottomTabNavigator(
     {
-      Home: { screen: HomeScreen },
+      Home: { screen: HomeScreenStack },
       Settings: { screen: SettingsScreen },
+
     },
     {
       defaultNavigationOptions: ({ navigation }) => ({
