@@ -59,13 +59,13 @@ export default class Login extends Component{
             const token = tokenData.accessToken.toString();
             const credential = firebaseApp.auth.FacebookAuthProvider.credential(token);
             const user = await firebaseApp.auth().signInAndRetrieveDataWithCredential(credential);
-
+            console.log("ahihihi")
             console.log(user);
-            // firebase.database().ref(`/users/${user.uid}/profile`).set({
-            //     name: user.displayName,
-            //     email: user.email,
-            //     avatar: user.photoURL
-            // });
+            firebase.database().ref(`/users/${user.uid}/profile`).set({
+                name: user.displayName,
+                email: user.email,
+                avatar: user.photoURL
+            });
             this.setState({
                 animating: false
             });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

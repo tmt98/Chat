@@ -7,9 +7,8 @@ import Login from '../screens/Login'
 import Chat from '../screens/Chat'
 import ListChat from '../screens/Home/ListChat'
 import SettingsScreen from '../screens/Home/SettingsScreen'
-//import Home from '../screens/Home'
 import getTabBarIcon from '../screens/Home/Icon'
-
+// import Home from '../screens/Home/Home'
 
 
 
