@@ -27,7 +27,6 @@ import {COLOR_PINK_LIGHT,COLOR_FACEBOOK, COLOR_GOOGLE} from './color.js'
 import {connect} from 'react-redux';
 import {InteractionManager} from 'react-native';
 import background from './../image/background-image.jpg';
-import { Actions } from 'react-native-router-flux';
 const config = {
     apiKey: "AIzaSyAIP8Ug0OqI5Rxv29HK8hMYTWNrgG8Yvoc",
     authDomain: "chat-app-87fd5.firebaseapp.com",
@@ -112,8 +111,7 @@ class Login extends Component{
         });
         this.setState({
             animating: false
-        });        
-        Actions.chat()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
       } catch (error) {
         this.setState({
             animating: false
@@ -198,6 +196,7 @@ class Login extends Component{
     const Divider = (props) => {        //props =  style={styles.divider}
       return (
         <View {...props}>
+
         <View style={styles.line}></View>
         <Text style={styles.textOR}>OR</Text>
         <View style={styles.line}></View>

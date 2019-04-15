@@ -5,14 +5,9 @@
 import {AppRegistry} from 'react-native';
 import App from './src/App';
 import Splash from './src/screens/Splash';
-//export default class App extends Component{
-//
-//	render(){
-//		return(
-//			<App />
-//			);
-//	}
-//}
+import {name as appName} from './app.json';
+import RootNavigation from'./src/navigations/RootNavigation'
+
 class Main extends Component {
     constructor(props){
         super(props);
@@ -23,14 +18,10 @@ class Main extends Component {
     }
     render(){
         const {currentScreen} = this.state
-        let mainScreen = currentScreen === 'Splash' ? <Splash/> : <App/>
+        let mainScreen = currentScreen === 'Splash' ? <Splash/> : <RootNavigation/>
         return mainScreen
     }
 }
-AppRegistry.registerComponent('chatapp', () => Main);
-/*
-import {AppRegistry, StyleSheet, Text,View} from 'react-native';
-import Login from './src/components/Login.js';
-import {name as appName} from './app.json';
-*/
-//AppRegistry.registerComponent(appName, () => Login);
+AppRegistry.registerComponent(appName, () => Main);
+// AppRegistry.registerComponent('chatapp', () => Main);
+

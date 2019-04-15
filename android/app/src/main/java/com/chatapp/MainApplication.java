@@ -1,4 +1,6 @@
+
   package com.chatapp;
+
 
 import android.app.Application;
 

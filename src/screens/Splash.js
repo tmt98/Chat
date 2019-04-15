@@ -9,6 +9,7 @@ import {
 import {COLOR_PINK_LIGHT,COLOR_FACEBOOK} from './color.js'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ProgressBar from 'react-native-progress/Bar';
+
 export default class Splash extends Component{
 	render(){
 		return(
@@ -24,6 +25,7 @@ export default class Splash extends Component{
                 <ProgressBar progress={0.3} width={200} indeterminate={true} color={'white'}/>
 			</View>
 		)
+
 	}
 
 }

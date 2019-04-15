@@ -35,4 +35,5 @@ public class MainActivity extends ReactActivity {
 		super.onNewIntent(intent);
 		setIntent(intent);
 	}
+
 }
