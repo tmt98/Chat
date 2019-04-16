@@ -1,21 +1,56 @@
 
-import {createStackNavigator,createAppContainer,createSwitchNavigator} from 'react-navigation'
+import {createStackNavigator,createAppContainer,createSwitchNavigator,createBottomTabNavigator} from 'react-navigation'
 
 
 // import RootStack from './RootStack'
 import React from 'react';
 import Login from '../screens/Login'
-import Splash from '../screens/Splash'
-import Chat from '../screens/Chat'
-import HomeScreen from './HomeScreen'
-import DetailsScreen from './DetailsScreen'
-import Home from '../screens/Home'
+
 import App from './../App'
+import ListChat from '../screens/Home/ListChat'
+import SettingsScreen from '../screens/Home/SettingsScreen'
+import getTabBarIcon from '../screens/Home/Icon'
+// import Home from '../screens/Home/Home'
+
+
+
+
+
+
+
+// const ListChatStack= createStackNavigator(
+//   {
+//     ListChat: ListChat,
+//     Chat: Chat
+//   },
+//   {
+//     initialRouteName:'ListChat'
+//   }
+// )
+//  const Home = createAppContainer(
+//   createBottomTabNavigator(
+//     {
+//       ListChatStack: { screen: ListChatStack },
+//       Settings: { screen: SettingsScreen },
+
+//     },
+//     // {
+//     //   defaultNavigationOptions: ({ navigation }) => ({
+//     //     tabBarIcon: ({ focused, tintColor }) =>
+//     //       getTabBarIcon(navigation, focused, tintColor),
+//     //   }),
+//     //   tabBarOptions: {
+//     //     activeTintColor: 'tomato',
+//     //     inactiveTintColor: 'gray',
+//     //   },
+//     // }
+//   )
+// );
+
 
 const RootStack = createSwitchNavigator(
   {
     Login: Login,
-    Home : Home,
     App : App
   },
   {

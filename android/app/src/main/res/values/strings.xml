@@ -3,8 +3,7 @@
     <!--<string name="facebook_app_id">232473897591905</string>-->
     <!-- <string name="facebook_app_id">986732411531293</string>
     <string name="fb_login_protocol_scheme">fb986732411531293</string> -->
-    <string name="facebook_app_id">232473897591905</string>
-
-
+    <string name="facebook_app_id">232473897591905</string> 
+    <string name="fb_login_protocol_scheme">fb232473897591905</string>
 
 </resources>

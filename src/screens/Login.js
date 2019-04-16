@@ -22,20 +22,22 @@ import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import firebase from 'firebase';
+
+// import firebase from 'firebase';
+import firebaseApp from  '../FirebaseConfig'
 import {COLOR_PINK_LIGHT,COLOR_FACEBOOK, COLOR_GOOGLE} from './color.js'
 import {connect} from 'react-redux';
 import {InteractionManager} from 'react-native';
 import background from './../image/background-image.jpg';
-const config = {
-    apiKey: "AIzaSyAIP8Ug0OqI5Rxv29HK8hMYTWNrgG8Yvoc",
-    authDomain: "chat-app-87fd5.firebaseapp.com",
-    databaseURL: "https://chat-app-87fd5.firebaseio.com",
-    projectId: "chat-app-87fd5",
-    storageBucket: "chat-app-87fd5.appspot.com",
-    messagingSenderId: "1096520825590"
-  };
-firebase.initializeApp(config);
+// const config = {
+//     apiKey: "AIzaSyAIP8Ug0OqI5Rxv29HK8hMYTWNrgG8Yvoc",
+//     authDomain: "chat-app-87fd5.firebaseapp.com",
+//     databaseURL: "https://chat-app-87fd5.firebaseio.com",
+//     projectId: "chat-app-87fd5",
+//     storageBucket: "chat-app-87fd5.appspot.com",
+//     messagingSenderId: "1096520825590"
+//   };
+// firebase.initializeApp(config);
 
 const _setTimeout = global.setTimeout;
 const _clearTimeout = global.clearTimeout;
@@ -57,9 +59,11 @@ if (Platform.OS === 'android') {
         return;
     }
 
+
     const afterTime = Math.min(waitingTime, MAX_TIMER_DURATION_MS);
     timerFix[id] = _setTimeout(() => runTask(id, fn, ttl, args), afterTime);
   };
+
 
   global.setTimeout = (fn, time, ...args) => {
     if (MAX_TIMER_DURATION_MS < time) {
@@ -82,6 +86,8 @@ if (Platform.OS === 'android') {
 }
 
 
+
+
 class Login extends Component{
     state = {
       logged: false,
@@ -92,6 +98,7 @@ class Login extends Component{
       super(props);
         this.logInSocial = this.logInSocial.bind(this)
     }
+
     onLoginFacebook = async () => {
       try {
         this.setState({
@@ -119,6 +126,38 @@ class Login extends Component{
         console.log(error.message);
         // do something here
       }
+    }
+    onLogin = async () => {
+        try {
+            this.setState({
+                animating: true,
+                logged:true
+            });
+            //console.log(this.state.logged)
+            const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+            const tokenData = await AccessToken.getCurrentAccessToken();
+            const token = tokenData.accessToken.toString();
+            const credential = firebaseApp.auth.FacebookAuthProvider.credential(token);
+            const user = await firebaseApp.auth().signInAndRetrieveDataWithCredential(credential);
+            console.log("ahihihi")
+            console.log(user);
+            firebase.database().ref(`/users/${user.uid}/profile`).set({
+                name: user.displayName,
+                email: user.email,
+                avatar: user.photoURL
+            });
+            this.setState({
+                animating: false
+            });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        } catch (error) {
+            this.setState({
+                animating: false
+            });
+            console.log(error.message);
+            // do something here
+        }
+        this.props.navigation.navigate('Home')
+
     }   
 
 //    onLoginGoogle = async()  => {

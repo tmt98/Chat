@@ -62,6 +62,7 @@
 		685966E6AD1C44C4AB0D467E /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F562B98BA62B46458E8E90BB /* libRNGestureHandler.a */; };
 		5104B3FFAFEC4D188F190B0D /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1DC2A63D9C4819A666325A /* libRNGestureHandler-tvOS.a */; };
 
+		57DF307933304E96A59FE8A3 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 657B2F8D042447FF8D29FBE2 /* libRNGoogleSignin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -394,13 +395,14 @@
 		E957D814898B431799290CDF /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		F562B98BA62B46458E8E90BB /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		0F1DC2A63D9C4819A666325A /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; name = "libRNGestureHandler-tvOS.a"; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-<<<<<<< HEAD
+
 		B6E02B21E47C442BA1DF4B2A /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; name = "RNGoogleSignin.xcodeproj"; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A7151F9AC8EA4F21BD765196 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; name = "libRNGoogleSignin.a"; path = "libRNGoogleSignin.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		7058822AFAAF43A6AD3B63B4 /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; name = "RNFIRMessaging.xcodeproj"; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		611C177BFDF142C39DCBF660 /* libRNFIRMessaging.a */ = {isa = PBXFileReference; name = "libRNFIRMessaging.a"; path = "libRNFIRMessaging.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-=======
->>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+
+		1230B31341B546839E1D7FB4 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; name = "RNGoogleSignin.xcodeproj"; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		657B2F8D042447FF8D29FBE2 /* libRNGoogleSignin.a */ = {isa = PBXFileReference; name = "libRNGoogleSignin.a"; path = "libRNGoogleSignin.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,11 +434,12 @@
 				0165A8B974804A2884065273 /* libRCTFBSDK.a in Frameworks */,
 				B9AA7F1B06C94900AF86DB72 /* libRNVectorIcons.a in Frameworks */,
 				685966E6AD1C44C4AB0D467E /* libRNGestureHandler.a in Frameworks */,
-<<<<<<< HEAD
+
 				FD5E2BA2836C4C69B58B095A /* libRNGoogleSignin.a in Frameworks */,
 				64784DEF8F4147B9902CBB73 /* libRNFIRMessaging.a in Frameworks */,
-=======
->>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+
+				57DF307933304E96A59FE8A3 /* libRNGoogleSignin.a in Frameworks */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,11 +634,11 @@
 				4562E544038749B0AC11E7FA /* RCTFBSDK.xcodeproj */,
 				56A9A2E396D5496A89D63EE6 /* RNVectorIcons.xcodeproj */,
 				E957D814898B431799290CDF /* RNGestureHandler.xcodeproj */,
-<<<<<<< HEAD
+
 				B6E02B21E47C442BA1DF4B2A /* RNGoogleSignin.xcodeproj */,
 				7058822AFAAF43A6AD3B63B4 /* RNFIRMessaging.xcodeproj */,
-=======
->>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+				1230B31341B546839E1D7FB4 /* RNGoogleSignin.xcodeproj */,
+
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1312,10 +1315,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1323,10 +1330,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Debug;
@@ -1354,10 +1365,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1365,10 +1380,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Release;
@@ -1395,10 +1414,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Debug;
@@ -1424,10 +1447,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Release;
@@ -1463,10 +1490,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1474,10 +1505,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Debug;
@@ -1513,10 +1548,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1524,10 +1563,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Release;
@@ -1562,10 +1605,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1573,10 +1620,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Debug;
@@ -1611,10 +1662,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1622,10 +1677,14 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"$(SRCROOT)\..\node_modules\react-native-google-signin\ios\RNGoogleSignin",
 					"$(SRCROOT)\..\node_modules\react-native-fcm\ios",
 =======
 >>>>>>> 1c471afad66b4aed585ca90029f696f8933ed2a4
+=======
+					"$(SRCROOT)/../node_modules/react-native-google-signin/ios/RNGoogleSignin",
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d
 				);
 			};
 			name = Release;

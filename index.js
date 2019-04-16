@@ -8,6 +8,17 @@ import Splash from './src/screens/Splash';
 import {name as appName} from './app.json';
 import RootNavigation from'./src/navigations/RootNavigation'
 
+
+
+// import {name as appName} from './app.json';
+
+// import Login from './src/screens/Login'
+//import Home from './src/screens/Home'
+//import GG from './GG'
+// import RootNavigation from './src/navigations/RootNavigation'
+
+
+
 class Main extends Component {
     constructor(props){
         super(props);

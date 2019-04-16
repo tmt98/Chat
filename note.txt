@@ -8,3 +8,9 @@ git push -u origin master
 sudo sysctl fs.inotify.max_user_watches=524288 && sudo sysctl -p && rm -rf /tmp/haste-map-react-native-packager-* && rm -rf /tmp/metro-bundler-cache-* && rm -rf node_modules/ && npm i && npm start -- reset-cache
 
 
+<<<<<<< HEAD
+=======
+
+keytool -list -v -keystore my-release-key.keystore -alias my-key-alias
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+>>>>>>> a3ecad2249c7bffeead4c14ce909f60df7ba334d

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View,Button} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // 6.2.2
 import { createStackNavigator,createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import Chat from './Chat'
+import Chat from './ListChat'
 
 
 class HomeScreen extends React.Component {
