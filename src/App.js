@@ -7,7 +7,8 @@ import Login from './screens/Login'
 
 import { Provider} from 'react-redux'
 import store from './store'
-
+import Home from './screens/Home/Home';
+import TabDemo from './screens/Homes/index'
 
 export default class App extends Component{
 	render(){

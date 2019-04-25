@@ -19,6 +19,10 @@ export default class Splash extends Component{
 					size={180}
 					color={'white'}> 
 				</Ionicons>
+				{/* <Icon name="ios-contacts"
+					size={180}
+					color={'while'}
+					/> */}
 				<Text style={styles.title}>
                      ChatApp
                 </Text>

@@ -9,7 +9,6 @@ import {name as appName} from './app.json';
 import RootNavigation from'./src/navigations/RootNavigation'
 
 
-
 // import {name as appName} from './app.json';
 
 // import Login from './src/screens/Login'
@@ -34,5 +33,5 @@ class Main extends Component {
     }
 }
 AppRegistry.registerComponent(appName, () => Main);
-// AppRegistry.registerComponent('chatapp', () => Main);
+// // AppRegistry.registerComponent('chatapp', () => Main);
 

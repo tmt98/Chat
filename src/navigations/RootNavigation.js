@@ -17,7 +17,6 @@ import getTabBarIcon from '../screens/Home/Icon'
 
 
 
-
 // const ListChatStack= createStackNavigator(
 //   {
 //     ListChat: ListChat,
@@ -50,8 +49,7 @@ import getTabBarIcon from '../screens/Home/Icon'
 
 const RootStack = createSwitchNavigator(
   {
-    Login: Login,
-    App : App
+    App : App,
   },
   {
     initialRouteName: 'App',
