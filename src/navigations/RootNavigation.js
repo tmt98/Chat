@@ -9,8 +9,8 @@ import ListChat from '../screens/Home/ListChat'
 import SettingsScreen from '../screens/Home/SettingsScreen'
 import getTabBarIcon from '../screens/Home/Icon'
 // import Home from '../screens/Home/Home'
-
-
+import Personalize from '../screens/Personalize'
+import createAccount from '../screens/createAccount'
 
 
 
@@ -29,7 +29,7 @@ const ListChatStack= createStackNavigator(
   createBottomTabNavigator(
     {
       ListChatStack: { screen: ListChatStack },
-      Settings: { screen: SettingsScreen },
+      Settings: { screen: Personalize },
 
     },
     // {
@@ -50,6 +50,7 @@ const RootStack = createSwitchNavigator(
   {
     Login: Login,
     Home : Home,
+    // createAccount: createAccount
   },
   {
     initialRouteName: 'Login',

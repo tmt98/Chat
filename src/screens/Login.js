@@ -20,6 +20,7 @@ import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import firebase from 'firebase';
+import FirebaseSvc from '../FirebaseSvc'
 import {COLOR_PINK_LIGHT,COLOR_FACEBOOK} from './color.js'
 
 // const config = {
@@ -35,53 +36,98 @@ import {COLOR_PINK_LIGHT,COLOR_FACEBOOK} from './color.js'
 
 
 
-import firebaseApp from  '../FirebaseConfig'
+import firebaseApp from  '../FirebaseSvc'
 
 
 export default class Login extends Component{
     state = {
     logged: false,
-    animating: false
+    animating: false,
+    name: 'Alex B',
+    email: 'test3@gmail.com',
+    password: 'test123',
+    avatar: '',
     }
 
     constructor(props) {
       super(props);
     }
-    onLogin = async () => {
-        try {
-            this.setState({
-                animating: true,
-                logged:true
-            });
-            //console.log(this.state.logged)
-            const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
-            const tokenData = await AccessToken.getCurrentAccessToken();
-            const token = tokenData.accessToken.toString();
-            const credential = firebaseApp.auth.FacebookAuthProvider.credential(token);
-            const user = await firebaseApp.auth().signInAndRetrieveDataWithCredential(credential);
-            console.log("ahihihi")
-            console.log(user);
-            firebase.database().ref(`/users/${user.uid}/profile`).set({
-                name: user.displayName,
-                email: user.email,
-                avatar: user.photoURL
-            });
-            this.setState({
-                animating: false
-            });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-        } catch (error) {
-            this.setState({
-                animating: false
-            });
-            console.log(error.message);
-            // do something here
-        }
-        this.props.navigation.navigate('Home')
+    // onLogin = async () => {
+    //     try {
+    //         this.setState({
+    //             animating: true,
+    //             logged:true
+    //         });
+    //         //console.log(this.state.logged)
+    //         const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+    //         const tokenData = await AccessToken.getCurrentAccessToken();
+    //         const token = tokenData.accessToken.toString();
+    //         const credential = firebaseApp.auth.FacebookAuthProvider.credential(token);
+    //         const user = await firebaseApp.auth().signInAndRetrieveDataWithCredential(credential);
+    //         console.log("ahihihi")
+    //         console.log(user);
+    //         firebase.database().ref(`/users/${user.uid}/profile`).set({
+    //             name: user.displayName,
+    //             email: user.email,
+    //             avatar: user.photoURL
+    //         });
+    //         this.setState({
+    //             animating: false
+    //         });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    //     } catch (error) {
+    //         this.setState({
+    //             animating: false
+    //         });
+    //         console.log(error.message);
+    //         // do something here
+    //     }
+    //     this.props.navigation.navigate('Home')
 
-    }   
-
+    // } 
     
+    
+    onPressLogin = async () => {
+        console.log('pressing login... email:' + this.state.email);
+        const user = {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          avatar: this.state.avatar,
+        };
+        console.log(typeof user+ '      ahihishidhishdi') 
+        if(user== undefined){
+            console.log("DDMMMMMMMMMMMMMMMMMMM")
+        }
+        else{
+            console.log("UHMMMMMMMMMM")
+        }
 
+        const response = FirebaseSvc.login(   //truyen uer vao thi bi loi nay 
+          user,
+          this.loginSuccess,
+          this.loginFailed
+        );
+      };
+    
+      loginSuccess = () => {
+        console.log('login successful, navigate to chat.');
+        this.props.navigation.navigate('Home', {
+          name: this.state.name,
+          email: this.state.email,
+          avatar: this.state.avatar,
+        });
+      };
+      loginFailed = () => {
+        console.log('login failed ***');
+        alert('Login failure. Please tried again.');
+      };
+
+    onChangeTextEmail = email => this.setState({email})
+    onChangeTextPassword= password => this.setState({password})
+
+    createAccount=async()=>{
+        this.props.navigation.navigate('createAccount')
+    }
 
                                                                             
 
@@ -115,6 +161,7 @@ export default class Login extends Component{
                       textContentType='emailAddress'
                       keyboardType='email-address'  
                       placeholder='Enter your email'
+                      onChangeText={this.onChangeTextEmail}
                       >
                       </TextInput>
                   </View>
@@ -123,9 +170,13 @@ export default class Login extends Component{
                       <TextInput style={styles.textInput}
                       placeholder='Enter your password' 
                       secureTextEntry={true}
+                      onChangeText={this.onChangeTextPassword}
                       ></TextInput>
                   </View>  
-                  <TouchableOpacity style={styles.loginButton}>
+                  <TouchableOpacity 
+                  style={styles.loginButton}
+                  onPress={this.onPressLogin}
+                  >
                     <Text style={styles.loginButtonTittle}>
                     LOGIN
                     </Text>
@@ -139,11 +190,11 @@ export default class Login extends Component{
 
                   style={styles.facebookButton}
                   name='facebook'
-                  onPress={this.onLogin}
+                  onPress={this.createAccount}
                   backgroundColor={COLOR_FACEBOOK}>
                   <Text style={styles.loginButtonTittle}>
                           
-                    Dang nhap
+                    Create new account
 
                   </Text>
                 
