@@ -49,11 +49,11 @@ const ListChatStack= createStackNavigator(
 const RootStack = createSwitchNavigator(
   {
     Login: Login,
-    Home : Home,
-    // createAccount: createAccount
+    createAccount: createAccount,
+     Home : Home,
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Login',  
   }
 );
 // export default RootNavigation;

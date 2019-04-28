@@ -20,7 +20,7 @@ import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import firebase from 'firebase';
-import FirebaseSvc from '../FirebaseSvc'
+
 import {COLOR_PINK_LIGHT,COLOR_FACEBOOK} from './color.js'
 
 // const config = {
@@ -36,7 +36,7 @@ import {COLOR_PINK_LIGHT,COLOR_FACEBOOK} from './color.js'
 
 
 
-import firebaseApp from  '../FirebaseSvc'
+import firebaseSvc from  '../FirebaseSvc'
 
 
 export default class Login extends Component{
@@ -102,11 +102,12 @@ export default class Login extends Component{
             console.log("UHMMMMMMMMMM")
         }
 
-        const response = FirebaseSvc.login(   //truyen uer vao thi bi loi nay 
+        const response = await firebaseSvc.login(
           user,
           this.loginSuccess,
-          this.loginFailed
-        );
+          this.loginFailed        
+          );
+        
       };
     
       loginSuccess = () => {
@@ -162,6 +163,7 @@ export default class Login extends Component{
                       keyboardType='email-address'  
                       placeholder='Enter your email'
                       onChangeText={this.onChangeTextEmail}
+                      value={this.state.email}
                       >
                       </TextInput>
                   </View>
@@ -171,6 +173,7 @@ export default class Login extends Component{
                       placeholder='Enter your password' 
                       secureTextEntry={true}
                       onChangeText={this.onChangeTextPassword}
+                      value={this.state.password}
                       ></TextInput>
                   </View>  
                   <TouchableOpacity 

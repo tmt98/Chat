@@ -7,19 +7,22 @@ const config = {
     storageBucket: "chat-app-87fd5.appspot.com",
     messagingSenderId: "1096520825590"
   };
+// firebase.initializeApp(config);
+
 class FirebaseSvc{
   constructor() {
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
-      console.log("firebase is ok")
     } else {
       console.log("firebase apps already running...")
     }
   }
-  login = async(user, success_callback, failed_callback) => {
+  login = async (user,success_callback,failed_callback) =>{
     console.log("logging in");
+
     const output = await firebase.auth().signInWithEmailAndPassword(user.email, user.password)
     .then(success_callback, failed_callback);
+    console.log(firebase.auth().currentUser.uid)
   }
   
   createAccount = async (user) => {
@@ -42,4 +45,5 @@ class FirebaseSvc{
   }
   
 }
-export const firebaseApp= firebase.initializeApp(config)
+const firebaseSvc = new FirebaseSvc();
+export default firebaseSvc;
