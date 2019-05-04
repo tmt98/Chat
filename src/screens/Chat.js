@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 import Login from './Login'

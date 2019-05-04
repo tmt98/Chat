@@ -1,9 +1,5 @@
 {
   "project_info": {
-    // "project_number": "990923304215",
-    // "firebase_url": "https://chat-app-d4a09.firebaseio.com",
-    // "project_id": "chat-app-d4a09",
-    // "storage_bucket": "chat-app-d4a09.appspot.com"
     "project_number": "1096520825590",
     "firebase_url": "https://chat-app-87fd5.firebaseio.com",
     "project_id": "chat-app-87fd5",
@@ -12,16 +8,6 @@
   "client": [
     {
       "client_info": {
-      //   "mobilesdk_app_id": "1:990923304215:android:c61cc839daef7074",
-      //   "android_client_info": {
-      //     "package_name": "com.chatapp"
-      //   }
-      // },
-      // "oauth_client": [],
-      // "api_key": [
-      //   {
-      //     "current_key": "AIzaSyBg_B31UWewv5jA57FVAF7OSPs1fssWg00"
-
         "mobilesdk_app_id": "1:1096520825590:android:f7e0b9f65eebb669",
         "android_client_info": {
           "package_name": "tung.sociu"
@@ -52,14 +38,12 @@
       "api_key": [
         {
           "current_key": "AIzaSyCQP37zn7Ulf52gOPG9goJGIeTwGJURW2g"
-
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              // "client_id": "990923304215-b2fe366888ceo4jr48djttkclnoevqo1.apps.googleusercontent.com",
               "client_id": "1096520825590-07asd0rnrqrg8hqlohpodg034j14c4d9.apps.googleusercontent.com",
               "client_type": 3
             }

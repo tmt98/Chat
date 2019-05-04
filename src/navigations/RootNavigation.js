@@ -1,58 +1,59 @@
-
 import {createStackNavigator,createAppContainer,createSwitchNavigator,createBottomTabNavigator} from 'react-navigation'
 
 
 // import RootStack from './RootStack'
 import React from 'react';
 import Login from '../screens/Login'
-
-import App from './../App'
+import Chat from '../screens/Chat'
 import ListChat from '../screens/Home/ListChat'
 import SettingsScreen from '../screens/Home/SettingsScreen'
 import getTabBarIcon from '../screens/Home/Icon'
 // import Home from '../screens/Home/Home'
+import Personalize from '../screens/Personalize'
+import createAccount from '../screens/createAccount'
 
 
 
 
 
+const ListChatStack= createStackNavigator(
+  {
+    ListChat: ListChat,
+    Chat: Chat
+  },
+  {
+    initialRouteName:'ListChat'
+  }
+)
+ const Home = createAppContainer(
+  createBottomTabNavigator(
+    {
+      ListChatStack: { screen: ListChatStack },
+      Settings: { screen: Personalize },
 
-// const ListChatStack= createStackNavigator(
-//   {
-//     ListChat: ListChat,
-//     Chat: Chat
-//   },
-//   {
-//     initialRouteName:'ListChat'
-//   }
-// )
-//  const Home = createAppContainer(
-//   createBottomTabNavigator(
-//     {
-//       ListChatStack: { screen: ListChatStack },
-//       Settings: { screen: SettingsScreen },
-
-//     },
-//     // {
-//     //   defaultNavigationOptions: ({ navigation }) => ({
-//     //     tabBarIcon: ({ focused, tintColor }) =>
-//     //       getTabBarIcon(navigation, focused, tintColor),
-//     //   }),
-//     //   tabBarOptions: {
-//     //     activeTintColor: 'tomato',
-//     //     inactiveTintColor: 'gray',
-//     //   },
-//     // }
-//   )
-// );
+    },
+    // {
+    //   defaultNavigationOptions: ({ navigation }) => ({
+    //     tabBarIcon: ({ focused, tintColor }) =>
+    //       getTabBarIcon(navigation, focused, tintColor),
+    //   }),
+    //   tabBarOptions: {
+    //     activeTintColor: 'tomato',
+    //     inactiveTintColor: 'gray',
+    //   },
+    // }
+  )
+);
 
 
 const RootStack = createSwitchNavigator(
   {
-    App : App,
+    Login: Login,
+    createAccount: createAccount,
+     Home : Home,
   },
   {
-    initialRouteName: 'App',
+    initialRouteName: 'Login',  
   }
 );
 // export default RootNavigation;
