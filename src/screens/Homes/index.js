@@ -45,7 +45,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import {Dimensions} from 'react-native'
 import Home from './Home'
-import Friends from './Friends'
+import Friend from './Friend/index'
 import Setting from './Setting'
 
 const deviceW = Dimensions.get('window').width
@@ -66,11 +66,11 @@ class TrangChu extends Component {
   }
 }
 
-class Friend extends Component {
+class BanBe extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Friends/>
+        <Friend/>
       </View>
     )
   }
@@ -111,7 +111,7 @@ export default class TabDemo extends Component {
           renderIcon={() => <Icon name="user" size={px2dp(22)} color="#666"/>}
           renderSelectedIcon={() => <Icon name="user" size={px2dp(22)} color="#3496f0"/>}
           onPress={() => this.setState({selectedTab: 'friends'})}>
-          <Friend/>
+          <BanBe/>
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'setting'}

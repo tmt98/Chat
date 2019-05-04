@@ -5,49 +5,56 @@ import avatar from './../../image/background-image.jpg'
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
 import Chat from '../Chat';
 import { createStackNavigator,createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import link from '../../server'
 export default class Home extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      message : [],
+      user : ''
+    }
   }
-  // static navigationOptions = ({ navigation }) => {
-  //   const { params = {} } = navigation.state;
-  //   let tabBarLabel = 'Home';
-  //   let tabBarIcon = () => (
-  //     <Image
-  //       source={''}
-  //       style={{ width: 26, height: 26, tintColor: '#0067a7' }}
-  //     />
-  //   );
-  //   return { tabBarLabel, tabBarIcon };
-  // }
+  
+ getMessageFromApi=async()=> {
+    try {
+      let response = await fetch(
+        link +'message/1',
+      );
+      let responseJson = await response.json();
+      this.setState({
+        message: responseJson
+      },
+      function(){
+
+      })
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  getUserFromApi = async () =>{
+    try {
+      let response = await fetch (
+        link +'users/2',
+      );
+      let responseJson = await response.json();
+      this.setState({
+        user: responseJson
+      },
+      function(){
+
+      })
+    } catch (error) {
+      console.error (error)
+    }
+  }
+  async componentDidMount(){
+    await this.getMessageFromApi()
+    await this.getUserFromApi()
+  }
   
   render() {
-    const users = [
-      {
-         name: 'Nguyễn Hiếu',
-         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-         massage: 'Doing what you like will always keep you happy . .',
-         time:'4:00 pm'
-      },
-      {
-        name: 'Trần Mạnh Tùng',
-        avatar: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-        massage: 'Doing what you like will always keep you happy . .',
-        time:'3:45 pm'
-     },
-     {
-        name: 'Lê Công Thương',
-        avatar: 'http://24htinhyeu.net/wp-content/uploads/2017/05/avatar-cap-999-anh-cap-doi-facebook-cho-2-nguoi-de-thuong-nhat-30..jpg',
-        massage: 'Doing what you like will always keep you happy . .',
-        time:'3:43 pm'
-      },
-      {
-        name: 'Kumar Pratik',
-        avatar: 'http://farm4.staticflickr.com/3770/33711721016_a3856cde6f_o.jpg',
-        massage: 'Doing what you like will always keep you happy . .',
-        time:'3:43 pm'
-      },
-     ]
+    let mes = this.state.message
     return (
       <View style={styles.container}>
         <View style={styles.top}>
@@ -60,22 +67,23 @@ export default class Home extends Component {
           </ImageBackground>
         </View>
         <View style={styles.down}>
-          <ScrollView>
+          {/* { (mes != null || this.state.user != null) ? */}
+            <ScrollView>
             {
-              users.map((u, i)=>{
+              this.state.message.map((u, i)=>{
                 return(
                   <Content key={i}>
                     <List >
                       <ListItem avatar >
                         <Left>
-                          <Thumbnail source={{ uri: u.avatar }} />
+                          <Thumbnail source={{ uri: u.Avatar }} />
                         </Left>
                         <Body>
-                          <Text>{ u.name }</Text>
-                          <Text note>{ u.massage }</Text>
+                          <Text>{ u.Name }</Text>
+                          <Text note>{ u.Message }</Text>
                         </Body>
                         <Right>
-                          <Text note>{ u.time }</Text>
+                          <Text note>{ u.Time }</Text>
                         </Right>
                       </ListItem>
                     </List>
@@ -83,8 +91,10 @@ export default class Home extends Component {
                 )
               })
             }
-            
             </ScrollView>
+            {/* :null
+          } */}
+          
           {/* <Text style={{ fontWeight: 'bold', fontSize: 22, color: 'black' }}>This is Home Screen</Text>
           <Text style={{ fontWeight: 'bold', fontSize: 22, color: 'black' }}>This is Home Screen</Text>
           <Text style={{backgroundColor:'gray', height:1, width:'90%'}}></Text>

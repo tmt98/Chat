@@ -4,7 +4,7 @@ import { View, Image, StyleSheet, ImageBackground, ScrollView } from 'react-nati
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Icon,Card, CardItem, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 const KEYS_TO_FILTERS = ['name'];
-export default class Friends extends Component {
+export default class RequestFriend extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,21 +62,6 @@ export default class Friends extends Component {
 
     return (
       <View style={styles.container}>
-          <Header style={{ backgroundColor: '#1ab2ff'}}>
-            <Left>
-              <Icon name='arrow-left' style={{ color:'white' }}></Icon>
-            </Left>
-            <Body>
-              <Text style={{ fontWeight: 'bold', fontSize:20, color:'white', }}>Bạn bè</Text>
-            </Body>
-          </Header>
-          <View style={{ backgroundColor:'white', }}>
-          <SearchInput 
-            onChangeText={(term) => { this.searchUpdated(term) }} 
-            style={styles.searchInput}
-            placeholder="Tìm bạn bè ..."
-            />
-          </View>
           <Container>
             <Content >
               <Card>
@@ -112,9 +97,9 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   searchInput:{
-    margin:10,
-    padding: 10,
-    borderColor: '#CCC',
+    margin:8,
+    width:'90%',
+    borderColor: 'white',
     borderWidth: 1,
     borderRadius: 40,
   }
