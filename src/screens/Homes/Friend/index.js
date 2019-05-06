@@ -63,31 +63,23 @@ export default class Friend extends Component {
         const filteredName = users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
       
         return (
-            <Container>
-                <Header style={{ backgroundColor: '#1ab2ff', width:'100%', flexDirection:'row'}} hasTabs>
-                    <View style={{flex:1, alignItems:'center'}}>
-                        <Icon active name='search' color='white' style={{alignItems:'center'}}></Icon>
-                    </View>
-                    <View style={{flex:4}}>
-                        <SearchInput 
-                            onChangeText={(term) => { this.searchUpdated(term) }} 
-                            style={styles.searchInput}
-                            placeholder="Tìm bạn bè ..."
-                            />
-                    </View>
-                </Header>
-                <Tabs style={{backgroundColor:'white'}}>
-                    <Tab heading={ <TabHeading><Icon name="camera" /><Text>Bạn bè</Text></TabHeading>}>
+            
+                // <Header style={{ backgroundColor: '#1ab2ff', width:'100%', }} hasTabs>
+                    
+                    <Tabs >
+                    <Tab heading={ <TabHeading><Icon name="home" /><Text>Bạn bè</Text></TabHeading>}>
                         <Friends />
                     </Tab>
                     <Tab heading={ <TabHeading><Text>Lời mời</Text></TabHeading>}>
-                        <AllUser />
-                    </Tab>
-                    <Tab heading={ <TabHeading><Text>Người dùng</Text></TabHeading>}>
                         <RequestFriend />
                     </Tab>
+                    <Tab heading={ <TabHeading><Text>Kết bạn</Text></TabHeading>}>
+                        <AllUser />
+                    </Tab>
                 </Tabs>
-            </Container>
+                // </Header>
+                
+           
         );
     }
 }

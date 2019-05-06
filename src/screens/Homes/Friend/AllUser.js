@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, ImageBackground, ScrollView } from 'react-native';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Icon,Card, CardItem, } from 'native-base';
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Icon,Card, CardItem, Button} from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 const KEYS_TO_FILTERS = ['name'];
 export default class AllUser extends Component {
@@ -62,6 +62,13 @@ export default class AllUser extends Component {
 
     return (
       <View style={styles.container}>
+        <Header style={{backgroundColor: 'white', width:'100%'}}>
+            <SearchInput 
+              onChangeText={(term) => { this.searchUpdated(term) }} 
+              style={styles.searchInput}
+              placeholder="Tìm bạn bè ..."
+              />
+        </Header>
           <Container>
             <Content >
               <Card>
@@ -69,13 +76,16 @@ export default class AllUser extends Component {
                   {
                     filteredName.map((u)=>{
                       return(
-                        <CardItem key={ u.key }>
-                          <Thumbnail source={{ uri: u.avatar }} />
-                          <Text style={{left:10}}>{u.name}</Text>
-                          <Right>
-                            <Icon active name='phone'></Icon>
-                            {/* <Icon active name='video-camera'></Icon> */}
-                          </Right>
+                        <CardItem key={ u.key } style={{flexDirection:'row'}}>
+                          <View style={{flex:1}}>
+                            <Thumbnail source={{ uri: u.avatar }}/>
+                          </View>
+                          <View style={{flex:3}}>
+                            <Text >{u.name}</Text>
+                            <Button rounded primary small>
+                              <Text>Kết Bạn</Text>
+                            </Button>
+                          </View>
                         </CardItem>
                     )
                   })
@@ -99,7 +109,7 @@ const styles = StyleSheet.create({
   searchInput:{
     margin:8,
     width:'90%',
-    borderColor: 'white',
+    borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 40,
   }

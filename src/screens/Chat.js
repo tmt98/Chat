@@ -73,27 +73,33 @@ export default class Chat extends React.Component {
     return (
       <View>
         <Header style={{ backgroundColor: '#1ab2ff'}}>
-          <Left style={{flexDirection:'row',}}>
-            <Icon name='arrow-left' style={{ color:'white', flex:1 , margin:5}}></Icon>
-            <Thumbnail 
-              source={{uri: this.state.userSend.Avatar}}
-              small
-              style={{flex:3,}}
-            ></Thumbnail>
+          <Left >
+            <Icon name='arrow-left' style={{ color:'white', margin:5}}></Icon>
+            
           </Left>
           <Body style={{ alignItems:"center"}}>
-            <Text style={{ fontWeight: 'bold', fontSize:20, color:'white',alignItems:"center"}}>
+            <Text style={{ fontWeight: 'bold', fontSize:15, color:'white',alignItems:"center"}}>
               {this.state.userSend.Name}
             </Text>
           </Body>
+          <Right>
+            <Thumbnail 
+              source={{uri: this.state.userSend.Avatar}}
+              small
+            ></Thumbnail>
+          </Right>
         </Header>
-        <GiftedChat
+        {this.state.messages != [] ?
+          <GiftedChat
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}
           user={{
             _id: 1,
           }}
         />
+        : <Text style={{color:'black', margin:20}}>ànkjdf</Text>
+        }
+        
       </View>
     )
   }

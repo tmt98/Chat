@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, ImageBackground, ScrollView } from 'react-native';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Icon,Card, CardItem, } from 'native-base';
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail,Separator, Text, Icon,Card, CardItem, Button} from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 const KEYS_TO_FILTERS = ['name'];
 export default class RequestFriend extends Component {
@@ -62,28 +62,69 @@ export default class RequestFriend extends Component {
 
     return (
       <View style={styles.container}>
-          <Container>
+        <Container>
+          <ScrollView>
             <Content >
-              <Card>
-                <ScrollView>
-                  {
-                    filteredName.map((u)=>{
-                      return(
-                        <CardItem key={ u.key }>
+              <Separator bordered>
+                <Text>DANH SÁCH LỜI MỜI KẾT BẠN</Text>
+              </Separator>
+              {
+                filteredName.map((u)=>{
+                  return(
+                  
+                      <ListItem avatar  key={ u.key }>
+                        <Left>
                           <Thumbnail source={{ uri: u.avatar }} />
-                          <Text style={{left:10}}>{u.name}</Text>
-                          <Right>
-                            <Icon active name='phone'></Icon>
-                            {/* <Icon active name='video-camera'></Icon> */}
-                          </Right>
-                        </CardItem>
-                    )
-                  })
-                }
+                        </Left>
+                        <Body>
+                          <Text >{u.name}</Text>
+                          <Text note>Muốn kết bạn</Text>
+                        </Body>        
+                        <Right >
+                            <Button rounded success small>
+                              <Text>Đồng ý</Text>
+                            </Button>
+                          {/* <Icon active nam  e='video-camera'></Icon> */}
+                        </Right>
+                      </ListItem>
                 
-                </ScrollView>
-            </Card>
-          </Content>
+                  
+                  
+                )
+              })
+            }
+            </Content>
+            <Content >
+              <Separator bordered>
+                <Text>DANH SÁCH GỬI ĐÃ GỬI YÊU CẦU KẾT BẠN</Text>
+              </Separator>
+              {
+                filteredName.map((u)=>{
+                  return(
+                  
+                      <ListItem avatar  key={ u.key }>
+                        <Left>
+                          <Thumbnail source={{ uri: u.avatar }} />
+                        </Left>
+                        <Body>
+                          <Text >{u.name}</Text>
+                          <Text note>Muốn kết bạn</Text>
+                        </Body>        
+                        <Right >
+                            <Button rounded success small>
+                              <Text>Đồng ý</Text>
+                            </Button>
+                          {/* <Icon active nam  e='video-camera'></Icon> */}
+                        </Right>
+                      </ListItem>
+                
+                  
+                  
+                )
+              })
+            }
+            </Content>
+          </ScrollView>
         </Container>
       </View>
     );

@@ -8,70 +8,56 @@ export default class Friends extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ''
+      searchTerm: '',
+      friend: []
     }
   }
   searchUpdated(term) {
     this.setState({ searchTerm: term })
   }
+  getFriendFromApi = async () =>{
+    try {
+      let response = await fetch (
+        link +'friend/1',
+      );
+      let responseJson = await response.json();
+      this.setState({
+        friend: responseJson
+      },
+      function(){
 
+      })
+    } catch (error) {
+      console.error (error)
+    }
+  }
+  async componentDidMount(){
+    await this.getFriendFromApi()
+  }
   render() {
-    const users = [
-      {
-        key:1,
-         name: 'Nguyễn Hiếu',
-         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-      },
-      {
-        key:2,
-        name: 'Trần Mạnh Tùng',
-        avatar: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-     },
-     {
-       key:3,
-        name: 'Lê Công Thương',
-        avatar: 'http://24htinhyeu.net/wp-content/uploads/2017/05/avatar-cap-999-anh-cap-doi-facebook-cho-2-nguoi-de-thuong-nhat-30..jpg',
-      },
-      {
-        key:4,
-        name: 'Kumar Pratik',
-        avatar: 'http://farm4.staticflickr.com/3770/33711721016_a3856cde6f_o.jpg',
-      },
-      {
-        key:5,
-        name: 'Nguyen Hieu',
-        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-     },
-     {
-       key:6,
-       name: 'Tran Manh Tung',
-       avatar: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-    },
-    {
-      key:7,
-       name: 'Le Cong Thuong',
-       avatar: 'http://24htinhyeu.net/wp-content/uploads/2017/05/avatar-cap-999-anh-cap-doi-facebook-cho-2-nguoi-de-thuong-nhat-30..jpg',
-     },
-     {
-       key:8,
-       name: 'Kumar',
-       avatar: 'http://farm4.staticflickr.com/3770/33711721016_a3856cde6f_o.jpg',
-     },
-     ]
-     const filteredName = users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    
+     const filteredName = this.state.friend.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
     return (
       <View style={styles.container}>
+        <Header style={{backgroundColor: 'white', width:'100%'}}>
+            <SearchInput 
+              onChangeText={(term) => { this.searchUpdated(term) }} 
+              style={styles.searchInput}
+              placeholder="Tìm bạn bè ..."
+              />
+        </Header>
           <Container>
+            
             <Content >
               <Card>
                 <ScrollView>
                   {
-                    filteredName.map((u)=>{
+                    filteredName.map((u, i)=>{
                       return(
-                        <CardItem key={ u.key }>
-                          <Thumbnail source={{ uri: u.avatar }} />
-                          <Text style={{left:10}}>{u.name}</Text>
+                        <CardItem key={i}>
+                          <Thumbnail source={{ uri: u.Avatar }} />
+                          <Text style={{left:10}}>{u.Name}</Text>
                           <Right>
                             <Icon active name='phone'></Icon>
                             {/* <Icon active name='video-camera'></Icon> */}
@@ -99,7 +85,7 @@ const styles = StyleSheet.create({
   searchInput:{
     margin:8,
     width:'90%',
-    borderColor: 'white',
+    borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 40,
   }

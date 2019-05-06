@@ -3,7 +3,6 @@ import {createStackNavigator,createAppContainer,createSwitchNavigator,createBott
 
 // import RootStack from './RootStack'
 import React from 'react';
-import Login from '../screens/Login'
 import Chat from '../screens/Chat'
 import ListChat from '../screens/Home/ListChat'
 import SettingsScreen from '../screens/Home/SettingsScreen'
@@ -11,6 +10,7 @@ import getTabBarIcon from '../screens/Home/Icon'
 // import Home from '../screens/Home/Home'
 import Personalize from '../screens/Personalize'
 import createAccount from '../screens/createAccount'
+import App from '../App'
 
 
 
@@ -48,12 +48,12 @@ const ListChatStack= createStackNavigator(
 
 const RootStack = createSwitchNavigator(
   {
-    Login: Login,
+    App : App,
     createAccount: createAccount,
      Home : Home,
   },
   {
-    initialRouteName: 'Login',  
+    initialRouteName: 'App',  
   }
 );
 // export default RootNavigation;
