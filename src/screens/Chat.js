@@ -43,7 +43,7 @@ export default class Chat extends React.Component {
         link + 'message/2/to/1' ,
       );
       let responseJson = await response.json();
-      responseJson.forEach(m => {
+      await responseJson.forEach(m => {
         this.setState(prevState => ({
           messages: [...prevState.messages, {
             _id: m.UserIdRec,
@@ -56,18 +56,31 @@ export default class Chat extends React.Component {
             },
           }]
         }))
-        this.setState({
-          message : m
-        })
       });
     } catch (error) {
       console.error (error)
     }
   }
 
-  async componentWillMount() {
-    await this.getInfoUserSend();s
-    await this.getMessage();
+  async componentDidMount() {
+    await this.getInfoUserSend();
+    // await this.getMessage();
+  }
+  componentWillMount() {
+    this.setState({
+      messages: [
+        {
+          _id: 1,
+          text: "Hello developer",
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: "React Native",
+            avatar: "https://placeimg.com/140/140/any"
+          }
+        }
+      ]
+    });
   }
   render() {
     return (
@@ -89,17 +102,13 @@ export default class Chat extends React.Component {
             ></Thumbnail>
           </Right>
         </Header>
-        {this.state.messages != [] ?
           <GiftedChat
-          messages={this.state.messages}
-          onSend={messages => this.onSend(messages)}
-          user={{
-            _id: 1,
-          }}
-        />
-        : <Text style={{color:'black', margin:20}}>ànkjdf</Text>
-        }
-        
+            messages={this.state.messages}
+            onSend={messages => this.onSend(messages)}
+            user={{
+              _id: 1,
+            }}
+          />
       </View>
     )
   }

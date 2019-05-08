@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Image, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Icon,Card, CardItem, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
-const KEYS_TO_FILTERS = ['name'];
+const KEYS_TO_FILTERS = ['Name'];
 export default class Friends extends Component {
   constructor(props) {
     super(props);
@@ -35,8 +35,8 @@ export default class Friends extends Component {
     await this.getFriendFromApi()
   }
   render() {
-    
-     const filteredName = this.state.friend.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    const {friend} = this.state
+     const filteredName = friend.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
     return (
       <View style={styles.container}>

@@ -6,12 +6,12 @@ import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnai
 import Chat from '../Chat';
 import { createStackNavigator,createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import link from '../../server'
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       message : [],
-      user : ''
     }
   }
   
@@ -32,27 +32,14 @@ export default class Home extends Component {
     }
   }
 
-  getUserFromApi = async () =>{
-    try {
-      let response = await fetch (
-        link +'users/2',
-      );
-      let responseJson = await response.json();
-      this.setState({
-        user: responseJson
-      },
-      function(){
-
-      })
-    } catch (error) {
-      console.error (error)
-    }
-  }
+  
   async componentDidMount(){
     await this.getMessageFromApi()
-    await this.getUserFromApi()
   }
-  
+  onPressMessage(UserId){
+    
+    alert(UserId)
+  }
   render() {
     let mes = this.state.message
     return (
@@ -74,7 +61,7 @@ export default class Home extends Component {
                 return(
                   <Content key={i}>
                     <List >
-                      <ListItem avatar >
+                      <ListItem avatar onPress={()=>this.onPressMessage(u.UserId)}>
                         <Left>
                           <Thumbnail source={{ uri: u.Avatar }} />
                         </Left>
@@ -105,6 +92,7 @@ export default class Home extends Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container:{

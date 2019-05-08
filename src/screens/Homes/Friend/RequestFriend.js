@@ -8,58 +8,49 @@ export default class RequestFriend extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ''
+      requestFriend: [],
+      sendRequestFriend:[]
     }
   }
-  searchUpdated(term) {
-    this.setState({ searchTerm: term })
+  getRequestFriendFromApi = async () =>{
+    try {
+      let response = await fetch (
+        link +'requestFriend/1',
+      );
+      let responseJson = await response.json();
+      this.setState({
+        requestFriend: responseJson
+      },
+      function(){
+
+      })
+    } catch (error) {
+      console.error (error)
+    }
+  }
+  getSendRequestFriendFromApi = async () =>{
+    try {
+      let response = await fetch (
+        link +'sendRequestFriend/1',
+      );
+      let responseJson = await response.json();
+      this.setState({
+        sendRequestFriend: responseJson
+      },
+      function(){
+
+      })
+    } catch (error) {
+      console.error (error)
+    }
+  }
+  async componentDidMount(){
+    await this.getRequestFriendFromApi()
+    await this.getSendRequestFriendFromApi()
   }
 
   render() {
-    const users = [
-      {
-        key:1,
-         name: 'Nguyễn Hiếu',
-         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-      },
-      {
-        key:2,
-        name: 'Trần Mạnh Tùng',
-        avatar: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-     },
-     {
-       key:3,
-        name: 'Lê Công Thương',
-        avatar: 'http://24htinhyeu.net/wp-content/uploads/2017/05/avatar-cap-999-anh-cap-doi-facebook-cho-2-nguoi-de-thuong-nhat-30..jpg',
-      },
-      {
-        key:4,
-        name: 'Kumar Pratik',
-        avatar: 'http://farm4.staticflickr.com/3770/33711721016_a3856cde6f_o.jpg',
-      },
-      {
-        key:5,
-        name: 'Nguyen Hieu',
-        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg',
-     },
-     {
-       key:6,
-       name: 'Tran Manh Tung',
-       avatar: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-    },
-    {
-      key:7,
-       name: 'Le Cong Thuong',
-       avatar: 'http://24htinhyeu.net/wp-content/uploads/2017/05/avatar-cap-999-anh-cap-doi-facebook-cho-2-nguoi-de-thuong-nhat-30..jpg',
-     },
-     {
-       key:8,
-       name: 'Kumar',
-       avatar: 'http://farm4.staticflickr.com/3770/33711721016_a3856cde6f_o.jpg',
-     },
-     ]
-     const filteredName = users.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-
+    const {requestFriend, sendRequestFriend}= this.state
     return (
       <View style={styles.container}>
         <Container>
@@ -69,15 +60,15 @@ export default class RequestFriend extends Component {
                 <Text>DANH SÁCH LỜI MỜI KẾT BẠN</Text>
               </Separator>
               {
-                filteredName.map((u)=>{
+                requestFriend.map((u, i)=>{
                   return(
                   
-                      <ListItem avatar  key={ u.key }>
+                      <ListItem avatar  key={i}>
                         <Left>
-                          <Thumbnail source={{ uri: u.avatar }} />
+                          <Thumbnail source={{ uri: u.Avatar }} />
                         </Left>
                         <Body>
-                          <Text >{u.name}</Text>
+                          <Text >{u.Name}</Text>
                           <Text note>Muốn kết bạn</Text>
                         </Body>        
                         <Right >
@@ -99,15 +90,15 @@ export default class RequestFriend extends Component {
                 <Text>DANH SÁCH GỬI ĐÃ GỬI YÊU CẦU KẾT BẠN</Text>
               </Separator>
               {
-                filteredName.map((u)=>{
+                sendRequestFriend.map((u, i)=>{
                   return(
                   
-                      <ListItem avatar  key={ u.key }>
+                      <ListItem avatar  key={ i}>
                         <Left>
-                          <Thumbnail source={{ uri: u.avatar }} />
+                          <Thumbnail source={{ uri: u.Avatar }} />
                         </Left>
                         <Body>
-                          <Text >{u.name}</Text>
+                          <Text >{u.Name}</Text>
                           <Text note>Muốn kết bạn</Text>
                         </Body>        
                         <Right >
